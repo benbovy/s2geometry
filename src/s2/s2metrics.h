@@ -31,6 +31,7 @@
 #include <algorithm>
 #include <cmath>
 
+#include "s2/base/port.h"
 #include "absl/log/absl_check.h"
 #include "s2/s2coords.h"
 #include "s2/util/math/mathutil.h"
@@ -87,9 +88,9 @@ using AreaMetric = Metric<2>;
 // example, the maximum angle between opposite bounding planes for a cell at
 // level k is kMaxAngleSpan.GetValue(k), and the average angle span for all
 // cells at level k is approximately kAvgAngleSpan.GetValue(k).
-extern const LengthMetric kMinAngleSpan;
-extern const LengthMetric kMaxAngleSpan;
-extern const LengthMetric kAvgAngleSpan;
+S2GEOMETRY_DLL extern const LengthMetric kMinAngleSpan;
+S2GEOMETRY_DLL extern const LengthMetric kMaxAngleSpan;
+S2GEOMETRY_DLL extern const LengthMetric kAvgAngleSpan;
 
 // The width of geometric figure is defined as the distance between two
 // parallel bounding lines in a given direction.  For cells, the minimum
@@ -113,9 +114,9 @@ extern const LengthMetric kAvgAngleSpan;
 // Note that because S2Cells are not usually rectangles, the minimum width of
 // a cell is generally smaller than its minimum edge length.  (The interior
 // angles of an S2Cell range from 60 to 120 degrees.)
-extern const LengthMetric kMinWidth;
-extern const LengthMetric kMaxWidth;
-extern const LengthMetric kAvgWidth;
+S2GEOMETRY_DLL extern const LengthMetric kMinWidth;
+S2GEOMETRY_DLL extern const LengthMetric kMaxWidth;
+S2GEOMETRY_DLL extern const LengthMetric kAvgWidth;
 
 // The minimum edge length of any cell at level k is at least
 // kMinEdge.GetValue(k), and the maximum is at most kMaxEdge.GetValue(k).
@@ -126,9 +127,9 @@ extern const LengthMetric kAvgWidth;
 // its edge neighbors.  In particular, it can be used to bound the distance
 // between adjacent cell centers along the space-filling Hilbert curve for
 // cells at any given level.
-extern const LengthMetric kMinEdge;
-extern const LengthMetric kMaxEdge;
-extern const LengthMetric kAvgEdge;
+S2GEOMETRY_DLL extern const LengthMetric kMinEdge;
+S2GEOMETRY_DLL extern const LengthMetric kMaxEdge;
+S2GEOMETRY_DLL extern const LengthMetric kAvgEdge;
 
 // The minimum diagonal length of any cell at level k is at least
 // kMinDiag.GetValue(k), and the maximum is at most kMaxDiag.GetValue(k).
@@ -138,26 +139,26 @@ extern const LengthMetric kAvgEdge;
 // and also the maximum geometric width (see the discussion above).  So for
 // example, the distance from an arbitrary point to the closest cell center
 // at a given level is at most half the maximum diagonal length.
-extern const LengthMetric kMinDiag;
-extern const LengthMetric kMaxDiag;
-extern const LengthMetric kAvgDiag;
+S2GEOMETRY_DLL extern const LengthMetric kMinDiag;
+S2GEOMETRY_DLL extern const LengthMetric kMaxDiag;
+S2GEOMETRY_DLL extern const LengthMetric kAvgDiag;
 
 // The minimum area of any cell at level k is at least kMinArea.GetValue(k),
 // and the maximum is at most kMaxArea.GetValue(k).  The average area of all
 // cells at level k is exactly kAvgArea.GetValue(k).
-extern const AreaMetric kMinArea;
-extern const AreaMetric kMaxArea;
-extern const AreaMetric kAvgArea;
+S2GEOMETRY_DLL extern const AreaMetric kMinArea;
+S2GEOMETRY_DLL extern const AreaMetric kMaxArea;
+S2GEOMETRY_DLL extern const AreaMetric kAvgArea;
 
 // This is the maximum edge aspect ratio over all cells at any level, where
 // the edge aspect ratio of a cell is defined as the ratio of its longest
 // edge length to its shortest edge length.
-extern const double kMaxEdgeAspect;
+S2GEOMETRY_DLL extern const double kMaxEdgeAspect;
 
 // This is the maximum diagonal aspect ratio over all cells at any level,
 // where the diagonal aspect ratio of a cell is defined as the ratio of its
 // longest diagonal length to its shortest diagonal length.
-extern const double kMaxDiagAspect;
+S2GEOMETRY_DLL extern const double kMaxDiagAspect;
 
 
 //////////////////   Implementation details follow   ////////////////////

@@ -18,6 +18,8 @@
 #ifndef S2_S2COORDS_INTERNAL_H_
 #define S2_S2COORDS_INTERNAL_H_
 
+#include "s2/base/port.h"
+
 namespace S2 {
 namespace internal {
 
@@ -41,7 +43,7 @@ int constexpr kInvertMask = 0x02;
 // Given a cell orientation and the (i,j)-index of a subcell (0=(0,0),
 // 1=(0,1), 2=(1,0), 3=(1,1)), return the order in which this subcell is
 // visited by the Hilbert curve (a position in the range [0..3]).
-extern const int kIJtoPos[4][4];
+S2GEOMETRY_DLL extern const int kIJtoPos[4][4];
 
 // kPosToIJ[orientation][pos] -> ij
 //
@@ -50,7 +52,7 @@ extern const int kIJtoPos[4][4];
 // inverse of the previous table:
 //
 //   kPosToIJ[r][kIJtoPos[r][ij]] == ij
-extern const int kPosToIJ[4][4];
+S2GEOMETRY_DLL extern const int kPosToIJ[4][4];
 
 // kPosToOrientation[pos] -> orientation_modifier
 //
@@ -58,13 +60,13 @@ extern const int kPosToIJ[4][4];
 // with the given traversal position [0..3] is related to the orientation
 // of the parent cell.  The modifier should be XOR-ed with the parent
 // orientation to obtain the curve orientation in the child.
-extern const int kPosToOrientation[4];
+S2GEOMETRY_DLL extern const int kPosToOrientation[4];
 
 // The U,V,W axes for each face.
-extern const double kFaceUVWAxes[6][3][3];
+S2GEOMETRY_DLL extern const double kFaceUVWAxes[6][3][3];
 
 // The precomputed neighbors of each face (see GetUVWFace).
-extern const int kFaceUVWFaces[6][3][2];
+S2GEOMETRY_DLL extern const int kFaceUVWFaces[6][3][2];
 
 }  // namespace internal
 }  // namespace S2

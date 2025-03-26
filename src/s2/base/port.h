@@ -26,6 +26,20 @@
 #include <cstring>
 
 // -----------------------------------------------------------------------------
+// MSVC Specific Requirements
+// -----------------------------------------------------------------------------
+
+#ifdef _WIN32
+  #ifdef S2GEOMETRY_BUILDING_S2GEOMETRY
+    #define S2GEOMETRY_DLL __declspec(dllexport)
+  #else
+    #define S2GEOMETRY_DLL __declspec(dllimport)
+  #endif
+#else
+  #define S2GEOMETRY_DLL
+#endif
+
+// -----------------------------------------------------------------------------
 // Utility Functions
 // -----------------------------------------------------------------------------
 

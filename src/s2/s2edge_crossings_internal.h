@@ -21,6 +21,7 @@
 #ifndef S2_S2EDGE_CROSSINGS_INTERNAL_H_
 #define S2_S2EDGE_CROSSINGS_INTERNAL_H_
 
+#include "s2/base/port.h"
 #include "absl/strings/string_view.h"
 #include "s2/s1angle.h"
 #include "s2/s2point.h"
@@ -44,7 +45,7 @@ bool GetStableCrossProd(const Vector3<T>& a, const Vector3<T>& b,
 Vector3_d ExactCrossProd(const S2Point& a, const S2Point& b);
 
 // The maximum error in the method above.
-extern const S1Angle kExactCrossProdError;
+S2GEOMETRY_DLL extern const S1Angle kExactCrossProdError;
 
 // Returns the cross product of two points using symbolic perturbations, rounded
 // to double-precision and scaled so that the result can be normalized to an
@@ -60,7 +61,7 @@ S2Point GetIntersectionExact(const S2Point& a0, const S2Point& a1,
                              const S2Point& b0, const S2Point& b1);
 
 // The maximum error in the method above.
-extern const S1Angle kIntersectionExactError;
+S2GEOMETRY_DLL extern const S1Angle kIntersectionExactError;
 
 // The following field is used exclusively by s2edge_crossings_test.cc to
 // measure how often each intersection method is used by GetIntersection().

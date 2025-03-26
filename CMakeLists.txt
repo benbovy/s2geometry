@@ -206,6 +206,10 @@ add_library(s2
             src/s2/util/math/mathutil.cc
             src/s2/util/units/length-units.cc)
 
+if (WIN32)
+  target_compile_definitions(s2 PRIVATE S2GEOMETRY_BUILDING_S2GEOMETRY)
+endif()
+
 if (GOOGLETEST_ROOT)
   add_library(s2testing STATIC
               src/s2/gmock_matchers.cc
